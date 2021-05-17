@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import Step1 from "./components/Step1";
+import CompatibleNetwork from "./components/CompatibleNetwork";
+import ImeiCheck from "./components/ImeiCheck";
+import ImeiInfoModal from "./components/Modals/ImeiInfoModal";
+import Step2 from "./components/Step2";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Step1/>
+    <CompatibleNetwork/>
+    <ImeiCheck/>
+    <ImeiInfoModal/>
+    <Step2/>
     </div>
   );
 }

@@ -1,0 +1,312 @@
+
+@font-face {
+    font-family: arialBold;
+    src: url('../../assets/fonts/arial/FontsFree-Net-arial-bold.ttf');
+}
+
+
+@font-face {
+    font-family: arialRegular;
+    src: url('../../assets/fonts/arial/arial.ttf');
+}
+
+body{
+    margin: 0;
+}
+
+input:focus{
+    outline: none;
+}
+
+
+.back_button button{
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.back_button i{
+   font-size: 10px;
+   padding-right:5px;
+}
+
+
+
+.step1_title h2{
+    font-size: 30px;
+    color: #ffffff;
+    margin: 0;
+    font-family: 'ITC Avant Garde Gothic Std Bold', sans-serif;
+    -webkit-text-stroke: .5px  #000000;
+}
+
+.step1_title p{
+    font-size: 20px;
+    color: #ffffff;
+    font-family: 'ITC Avant Garde Gothic Std Demi', sans-serif;
+    margin: 0;
+
+}
+
+.step1_body .step_progress img{
+    width: 100px;
+}
+
+
+.step_select_network h3{
+    font-size: 15px;
+    font-family: 'ITC Avant Garde Gothic Std Demi', sans-serif;
+    text-align: center;
+    color: #000000;
+}
+
+.networks_content{
+    text-align: center;
+    border: 2px solid #B1B1B1;
+    padding: 15px;
+    margin: 40px auto;
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: #0000004d 0 3px 6px;
+    display: block;
+    background: #fff;
+}
+
+
+.step1_body .networks_content img{
+    width: 50px;
+}
+
+.active_network{
+    box-shadow: #D37091 0 3px 6px;
+    border-color: #D37091;
+}
+
+.help_content{
+ margin-bottom: 80px;
+    text-align: center;
+}
+
+.help_content p {
+    font-size: 14px;
+    color: #000000;
+    font-family: 'ITC Avant Garde Gothic Std', sans-serif;
+
+}
+
+.default_buttons{
+    background: #4471B7;
+    padding: 12px 42px;
+    margin: 0 auto;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: 'ITC Avant Garde Gothic Std Medium Condensed', sans-serif;
+    border: none;
+    border-radius: 10px;
+}
+
+.help_content button{
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 14px;
+    color: #000000;
+    font-family: 'ITC Avant Garde Gothic Std Bold', sans-serif;
+    text-decoration: underline;
+    padding: 0;
+}
+.step_check{
+    text-align: center;
+}
+
+.disabled_button{
+    opacity: 0.5;
+}
+
+.help_modal_overlay{
+    background: #D37091 !important;
+    opacity: 0.4 !important;
+    border: none;
+}
+
+
+
+
+.step_check button{
+    background: #4471B7;
+    padding: 12px 42px;
+    margin: 0 auto;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: 'ITC Avant Garde Gothic Std Medium Condensed', sans-serif;
+    border: none;
+    border-radius: 10px;
+}
+.step1_help_modal .react-responsive-modal-closeButton svg{
+    fill: #000000;
+    border-radius: 50px;
+    border: 1px solid #000000;
+    background: #D37091;
+
+}
+.step1_help_modal{
+    border: 1px solid #D37091;
+    border-radius: 10px;
+}
+
+.step1_help_modal h2{
+    color: #000000;
+    font-size: 24px;
+    font-family: arialBold;
+    text-align: center;
+    margin-top: 45px;
+}
+
+
+.step1_help_modal p {
+    font-size: 16px;
+    color: #000000;
+    font-family: arialRegular;
+    max-width: 260px;
+    text-align: center;
+    margin: 42px auto;
+
+}
+
+.checked_network{
+    margin-top: 100px;
+}
+
+.checked_network p {
+    font-size: 18px;
+    color: #134B97;
+    text-align: center;
+    font-family: 'ITC Avant Garde Gothic Std Medium Condensed', sans-serif;
+    padding: 0 60px;
+    margin: 0;
+}
+
+.checked_network h2{
+    font-family: 'ITC Avant Garde Gothic Std Bold', sans-serif;
+    color: #134B97;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.step_check .start_button{
+    padding: 12px 62px;
+}
+
+.start_button_content{
+    position: absolute;
+    bottom: 21px;
+    left: 27%;
+}
+
+
+.imei_check_content p {
+    font-size: 15px;
+    color: #000000;
+    font-family: 'ITC Avant Garde Gothic Std', sans-serif;
+    padding: 24px;
+    text-align: center;
+}
+
+
+.imei_check_input{
+    text-align: center;
+}
+
+.imei_check_input input{
+    padding: 13px;
+    border-color: #4471B7;
+    border-radius: 10px;
+    margin-left: 40px;
+
+}
+
+.imei_check_input img{
+    vertical-align: middle;
+    margin-left: 15px;
+}
+
+.imei_check_input input::placeholder{
+    text-align: center;
+    font-size: 18px;
+    color: #5C5C5C;
+    font-family: 'ITC Avant Garde Gothic Std Medium Condensed', sans-serif;
+    vertical-align: middle;
+}
+
+
+.imei_check_content span{
+    font-family: 'ITC Avant Garde Gothic Std Bold', sans-serif;
+
+}
+
+
+.imei_check_submit{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.imei_check_submit button{
+    padding: 14px 80px;
+}
+
+.imei_info{
+ text-align: center;
+ margin-bottom: 15px;
+   border-bottom: 1px solid #D37091;
+}
+.imei_info span{
+    font-size: 16px;
+    color: #000000;
+    font-family: arialBold;
+}
+
+.imei_modal p {
+    margin: 13px 18px;
+}
+
+.lines_select{
+ margin-top: 40px;
+}
+.lines_select h3{
+    font-size: 15px;
+    text-align: center;
+    color: #000000;
+    font-family: 'ITC Avant Garde Gothic Std Demi', sans-serif;
+
+}
+
+@media (max-width: 991px) {
+    .step1_body{
+        position: relative;
+    }
+  .step1_body img{
+      width: 100%;
+  }
+
+  .back_button{
+      position: absolute;
+      left: 6px;
+      top: 17px;
+  }
+
+  .logo_content{
+      position: absolute;
+      right: 27px;
+      top: 12px;
+
+  }
+
+  .step1_title{
+      position: absolute;
+      top: 75px;
+      left: 16px;
+  }
+
+}
