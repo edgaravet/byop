@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {connect} from "react-redux";
-import {Header} from "./Header";
+import Header from "./Header";
 import {showImeiModal} from "../redux/actions";
 
 

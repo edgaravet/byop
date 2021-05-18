@@ -1,10 +1,15 @@
 import React from "react";
+import {connect} from "react-redux";
 
 
-export const Header = () => {
+ const Header = (props) => {
+     console.log(props);
+
     return(
+
+
         <>
-            <img src={require('../assets/img/Group 2744.png').default}/>
+            <img src={props.imgSrc}/>
             <div className={'back_button'}>
                 <button><i className="fal fa-chevron-left"/>Back</button>
             </div>
@@ -24,3 +29,14 @@ export const Header = () => {
             </>
     )
 }
+
+
+function mapStateToProps(state) {
+
+    return{
+        currentStep: state.appReducer.currentStep
+    }
+
+}
+
+export default connect(mapStateToProps,null)(Header);

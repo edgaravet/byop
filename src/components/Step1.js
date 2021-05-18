@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import HelpModal from "./Modals/HelpModal";
 import {connect} from 'react-redux'
 import {checkNetwork, imeiCheck, openHelpModal} from "../redux/actions";
-import {Header} from "./Header";
+import Header from "./Header";
 
  const Step1 = (props) => {
     const  languages = [
@@ -46,10 +46,12 @@ import {Header} from "./Header";
         return false
     }
 
+    const img = require('../assets/img/Group 2744.png').default
+
     return(
         <div>
             <div className={'step1_body'}>
-                <Header/>
+                <Header imgSrc = {img}/>
 
                 <div className={'step_select_network'}>
                     <h3>Select your current network:</h3>

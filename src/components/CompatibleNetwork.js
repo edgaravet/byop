@@ -1,5 +1,5 @@
 import React from "react";
-import {Header} from "./Header";
+import Header from "./Header";
 import {connect} from 'react-redux';
 import {nextStep} from "../redux/actions";
 
@@ -14,12 +14,14 @@ import {nextStep} from "../redux/actions";
         props.dispatch(nextStep(2))
     }
 
+     const img = require('../assets/img/Group 2744.png').default
+
     return(
         <>
         <div className={'step1_body'}>
 
 
-            <Header/>
+            <Header imgSrc = {img} />
 
         </div>
 

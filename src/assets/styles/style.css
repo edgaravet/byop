@@ -201,8 +201,9 @@ input:focus{
 
 .start_button_content{
     position: absolute;
-    bottom: 21px;
-    left: 27%;
+    left: 0;
+    right: 0;
+    bottom: 18px;
 }
 
 
@@ -280,6 +281,47 @@ input:focus{
     color: #000000;
     font-family: 'ITC Avant Garde Gothic Std Demi', sans-serif;
 
+}
+
+.lines_select{
+    text-align: center;
+}
+
+.lines_select div{
+    border: 2px solid #4471B7;
+    border-radius: 50px;
+    padding: 6px 8px;
+    display: inline-block;
+    vertical-align: super;
+}
+.lines_select div i {
+    font-weight: bold;
+    color: #4471B7;
+}
+
+.user_icons {
+    color: #134B97;
+    padding: 6px 9px;
+    font-size: 30px;
+    font-weight: 300;
+
+}
+
+.active{
+    padding: 6px 9px;
+    font-size: 28px;
+    color: #F59572;
+    -webkit-text-stroke: 1px #134B97;
+
+}
+
+.plan_tabs .react-tabs__tab-list{
+    border: none;
+    text-align: center;
+}
+
+.plan_tabs .react-tabs__tab--selected{
+    border: none;
 }
 
 @media (max-width: 991px) {

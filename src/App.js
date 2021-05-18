@@ -4,6 +4,7 @@ import CompatibleNetwork from "./components/CompatibleNetwork";
 import ImeiCheck from "./components/ImeiCheck";
 import ImeiInfoModal from "./components/Modals/ImeiInfoModal";
 import Step2 from "./components/Step2";
+import Step3 from "./components/Step3";
 function App() {
   return (
     <div className="App">
@@ -12,6 +13,7 @@ function App() {
     <ImeiCheck/>
     <ImeiInfoModal/>
     <Step2/>
+    <Step3/>
     </div>
   );
 }
