@@ -1,5 +1,5 @@
 import {
-    CHECKEDNETWORK,
+    CHECKEDNETWORK, GETRESULT,
     HIDEHELPMODAL,
     HIDEIMEIMODAL,
     IMEICHECK,
@@ -15,7 +15,8 @@ const initialState = {
     network_checked:false,
     currentStep:1,
     imeiCheck:false,
-    show_imei_modal:false
+    show_imei_modal:false,
+    result:false
 }
 
 export const appReducer = (state = initialState, action) => {
@@ -77,6 +78,16 @@ export const appReducer = (state = initialState, action) => {
                 ...state,
                 currentStep: action.payload,
                 network_checked:false
+            }
+        }
+
+
+        case GETRESULT:{
+            return {
+                ...state,
+                result: true,
+                currentStep: null
+
             }
         }
 

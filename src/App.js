@@ -5,6 +5,8 @@ import ImeiCheck from "./components/ImeiCheck";
 import ImeiInfoModal from "./components/Modals/ImeiInfoModal";
 import Step2 from "./components/Step2";
 import Step3 from "./components/Step3";
+import Step4 from "./components/Step4";
+import Result from "./components/Result";
 function App() {
   return (
     <div className="App">
@@ -14,6 +16,8 @@ function App() {
     <ImeiInfoModal/>
     <Step2/>
     <Step3/>
+    <Step4/>
+    <Result/>
     </div>
   );
 }

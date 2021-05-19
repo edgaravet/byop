@@ -1,4 +1,13 @@
-import {CHECKEDNETWORK, HIDEHELPMODAL, HIDEIMEIMODAL, IMEICHECK, NEXTSTEP, SHOWHELPMODAL, SHOWIMEIMODAL} from "./types";
+import {
+    CHECKEDNETWORK,
+    GETRESULT,
+    HIDEHELPMODAL,
+    HIDEIMEIMODAL,
+    IMEICHECK,
+    NEXTSTEP,
+    SHOWHELPMODAL,
+    SHOWIMEIMODAL
+} from "./types";
 
 export function openHelpModal() {
 
@@ -56,6 +65,15 @@ export function nextStep(step) {
     return{
         type:NEXTSTEP,
         payload:step
+    }
+
+}
+
+
+export function getResult(){
+
+    return{
+        type:GETRESULT
     }
 
 }

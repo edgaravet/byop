@@ -5,6 +5,8 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Slider, { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
+import RightTab from "./Tabs/RightTab";
+import {nextStep} from "../redux/actions";
 
 
 const Step3 = (props) => {
@@ -18,27 +20,6 @@ const Step3 = (props) => {
     }
     const max = 36
     const img = require('../assets/img/Mask Group 32.png').default;
-
-
-    const marks = {
-        1: {
-            style: {
-
-            }, label: <span className={slider_value === 5 ? 'activation' : 'slider_label'}>1GB</span>
-        },
-        10: {
-
-        },
-
-        25: {
-
-        },
-        [max]: {
-            style: {
-
-            }, label: <span  className={slider_value === 50 ? 'activation' : 'slider_label'}>UNL</span>
-        }
-    }
 
     const log = (value) => {
 
@@ -62,13 +43,34 @@ const Step3 = (props) => {
 
 
         if (value > 25) {
-                setText('Videos, Streaming, Music & Heavy Browsing')
-                setLargeRels('extra_slider')
-                return setSliderValue(36)
+            setText('Videos, Streaming, Music & Heavy Browsing')
+            setLargeRels('extra_slider')
+            return setSliderValue(36)
         }
 
         setSliderValue(value)
     }
+    const marks = {
+        1: {
+            style: {
+
+            }, label: <span className={slider_value === 5 ? 'activation' : 'slider_label'}>1GB</span>
+        },
+        10: {
+
+        },
+
+        25: {
+
+        },
+        [max]: {
+            style: {
+
+            }, label: <span  className={slider_value === 50 ? 'activation' : 'slider_label'}>UNL</span>
+        }
+    }
+
+
 
     const changeTab = (index) => {
         if(index === 0){
@@ -77,6 +79,11 @@ const Step3 = (props) => {
             setImgUrl(require('../assets/img/conversation.svg').default)
         }
         setTabIndex(index)
+    }
+
+
+    const handleSubmit = () => {
+        props.dispatch(nextStep(4))
     }
 
     return(
@@ -114,30 +121,36 @@ const Step3 = (props) => {
                                 </g>
                             </svg>Fixed Talk & Text</Tab>
                     </TabList>
+
+
                     <div style={tabIndex !== -1 ? {display:'block'} : {display:'none'} } className={'tab_plan_content'}>
 
 
-                    <h2 className={'plan_title'}>Select the monthly data you need per line</h2>
 
-                  <div style={{height:'236px'}}>
-                      <div className={'round_block'}>
-                          <div style={tabIndex !== -1 ? {display:'block'} : {display:'none'} } className={(largeRels) + ' slider_info'}>
-                              <h2>{slider_value > 25 ? "UNL" : slider_value + 'GB'}</h2>
-                              <p>{text}</p>
-                          </div>
-                      </div>
-                  </div>
                     <TabPanel>
+                        <h2 className={'plan_title'}>Select the monthly data you need per line</h2>
 
+                        <div style={{height:'236px'}}>
+                            <div className={'round_block'}>
+                                <div style={tabIndex !== -1 ? {display:'block'} : {display:'none'} } className={(largeRels) + ' slider_info'}>
+                                    <h2>{slider_value > 25 ? "UNL" : slider_value + 'GB'}</h2>
+                                    <p>{text}</p>
+                                </div>
+                            </div>
+                        </div>
                         <Slider  dots={false}  className={'range_slider data_count_slider'} value={slider_value} onChange={log} step={1} defaultValue={1} min={1}  max={max}  marks={marks}/>
 
                     </TabPanel>
+
+
                     <TabPanel>
-                        <h2>Any content 2</h2>
+                        <RightTab tabIndex = {tabIndex}/>
                     </TabPanel>
                         <div className={'step_check'}>
-                        <button>Let’s Find Your Savings</button>
+                        <button onClick={handleSubmit}>Let’s Find Your Savings</button>
                         </div>
+
+
                     </div>
 
                 </Tabs>
