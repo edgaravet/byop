@@ -30,10 +30,12 @@ import {showImeiModal} from "../redux/actions";
          console.log('submited')
      }
 
+     const img = require('../assets/img/Group 2744.png').default
+
     return(
         <>
         <div className={'step1_body'}>
-          <Header/>
+          <Header imgSrc = {img}/>
         </div>
 
             <div className={'imei_check_content'}>

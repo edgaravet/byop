@@ -24,8 +24,13 @@ import {connect} from "react-redux";
             </div>
 
             <div className={'step_progress'}>
+
+                <img src={require('../assets/img/Subtraction 7.svg').default}/>
+                <img src={require('../assets/img/Subtraction 7.svg').default}/>
+                <img src={require('../assets/img/Subtraction 7.svg').default}/>
                 <img src={require('../assets/img/Subtraction 7.svg').default}/>
             </div>
+
             </>
     )
 }
