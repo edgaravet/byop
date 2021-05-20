@@ -1,16 +1,24 @@
 import React from "react";
 import {connect} from "react-redux";
+import {back} from "../redux/actions";
 
 
  const Header = (props) => {
 
+     const backStep = () => {
+         if(props.currentStep === null){
+             return props.dispatch(back(1))
+         }
+         props.dispatch(back())
+     }
+    console.log(props.currentStep)
     return(
 
 
         <>
             <img src={props.imgSrc} alt={'header_img'}/>
             <div className={'back_button'}>
-                <button><i className="fal fa-chevron-left"/>Back</button>
+                <button onClick={backStep} className={props.result ? 'result_desc' : ''}><i className="fal fa-chevron-left"/>BACK</button>
             </div>
 
             <div className={'logo_content'}>

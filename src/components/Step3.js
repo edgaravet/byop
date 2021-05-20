@@ -54,19 +54,22 @@ const Step3 = (props) => {
         1: {
             style: {
 
-            }, label: <span className={slider_value === 5 ? 'activation' : 'slider_label'}>1GB</span>
+            },
+            label: <span className={slider_value === 5 ? 'activation' : 'slider_label'}>1GB<h3 style={slider_value === 1 ? {display:'block'} : {display: 'none'}}>Starting at $<span>20</span></h3></span>
         },
         10: {
+            label: <span className={slider_value === 10 ? 'activation slider_label' : 'slider_label'}><h3 style={slider_value === 10 ? {display:'block'} : {display: 'none'}}>Starting at $<span>40</span></h3></span>
 
         },
 
         25: {
+            label: <span className={slider_value === 25 ? 'activation slider_label' : 'slider_label'}>1GB<h3 style={slider_value === 25 ? {display:'block'} : {display: 'none'}}>Starting at $<span>50</span></h3></span>
 
         },
         [max]: {
             style: {
 
-            }, label: <span  className={slider_value === 50 ? 'activation' : 'slider_label'}>UNL</span>
+            }, label: <span  className={slider_value === 50 ? 'activation slider_label' : 'slider_label'}>UNL<h3 style={slider_value === max ? {display:'block'} : {display: 'none'}}>Starting at $<span>50</span></h3></span>
         }
     }
 

@@ -12,7 +12,12 @@ import {hideImeiModal} from "../../redux/actions";
 
     return(
         <Modal classNames={{
-            modal:'step1_help_modal imei_modal',overlay:"help_modal_overlay",
+            modal:'step1_help_modal imei_modal',
+            overlay:"help_modal_overlay",
+            overlayAnimationIn: 'customEnterOverlayAnimation',
+            overlayAnimationOut: 'customLeaveOverlayAnimation',
+            modalAnimationIn: 'customEnterModalAnimation',
+            modalAnimationOut: 'customLeaveModalAnimation'
         }}  open={props.imei_modal} onClose={onCloseModal} center>
             <h2>How To Find Serial Number, IMEI or MEID:</h2>
            <div className={'imei_info'}>

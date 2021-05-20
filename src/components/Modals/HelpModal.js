@@ -13,8 +13,13 @@ import {closeHelpModal} from "../../redux/actions";
         <div>
 
             <Modal classNames={{
-                modal:'step1_help_modal',overlay:"help_modal_overlay",
-            }}  open={props.show_help_modal} onClose={onCloseModal} center>
+                modal:'step1_help_modal',
+                overlay:"help_modal_overlay",
+                overlayAnimationIn: 'customEnterOverlayAnimation',
+                overlayAnimationOut: 'customLeaveOverlayAnimation',
+                modalAnimationIn: 'customEnterModalAnimation',
+                modalAnimationOut: 'customLeaveModalAnimation',
+            }}  open={props.show_help_modal}  onClose={onCloseModal} center>
                 <h2>If You Don’t Know Your Devices Carrier</h2>
                 <p>Try turning the device off and back on and watch the screen. Some devices will display the network or carrier logo when starting up.</p>
                 <p>If this does not work, contact your service provider to find out what carrier it was using or if your phone can be unlocked.</p>

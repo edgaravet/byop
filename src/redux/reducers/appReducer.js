@@ -1,11 +1,12 @@
 import {
+    BACKSTEP,
     CHANGE_DATA, CHANGE_STEP,
     CHECKEDNETWORK, GETRESULT,
     HIDEHELPMODAL,
     HIDEIMEIMODAL,
     IMEICHECK,
     SHOWHELPMODAL,
-    SHOWIMEIMODAL, SORTED_DATA,
+    SHOWIMEIMODAL, SORTED_DATA, STARTOVER,
 } from "../types";
 
 
@@ -103,6 +104,30 @@ export const appReducer = (state = initialState, action) => {
             return {
                 ...state,
                 sortedData:action.payload,
+
+            }
+        }
+
+
+
+        case BACKSTEP:{
+            return {
+                ...state,
+                currentStep:action.payload ? action.payload : state.currentStep - 1,
+                network_checked:false,
+                imeiCheck:false
+
+            }
+        }
+
+
+        case STARTOVER:{
+            return {
+                ...state,
+                currentStep: 1,
+                result: false,
+                network_checked:false,
+                imeiCheck:false
 
             }
         }

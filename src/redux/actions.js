@@ -1,4 +1,5 @@
 import {
+    BACKSTEP,
     CHANGE_DATA, CHANGE_STEP,
     CHECKEDNETWORK,
     GETRESULT,
@@ -6,7 +7,7 @@ import {
     HIDEIMEIMODAL,
     IMEICHECK,
     SHOWHELPMODAL,
-    SHOWIMEIMODAL, SORTED_DATA
+    SHOWIMEIMODAL, SORTED_DATA, STARTOVER
 } from "./types";
 
 export function openHelpModal() {
@@ -96,6 +97,26 @@ export function saveSortedData(sortedData){
             type:SORTED_DATA,
             payload:sortedData
         })
+    }
+}
+
+export function back(prevStep = 0) {
+    if(prevStep > 0){
+        return{
+            type:BACKSTEP,
+            payload:prevStep
+        }
+    }
+    return{
+        type:BACKSTEP
+    }
+
+}
+
+
+export function startOver() {
+    return{
+        type:STARTOVER
     }
 
 }

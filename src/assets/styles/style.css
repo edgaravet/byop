@@ -31,6 +31,7 @@ input:focus {
     outline: none;
     font-size: 14px;
     color: #ffffff;
+    font-family: avantGardeMedium;
 }
 
 .back_button i {
@@ -102,7 +103,7 @@ input:focus {
 .help_content p {
     font-size: 14px;
     color: #000000;
-    font-family: 'ITC Avant Garde Gothic Std', sans-serif;
+    font-family: avantGardeMedium
 
 }
 
@@ -157,7 +158,7 @@ input:focus {
 .step1_help_modal .react-responsive-modal-closeButton svg {
     fill: #000000;
     border-radius: 50px;
-    border: 1px solid #000000;
+    border: 2px solid #000000;
     background: #D37091;
 
 }
@@ -221,8 +222,8 @@ input:focus {
 .imei_check_content p {
     font-size: 15px;
     color: #000000;
-    font-family: 'ITC Avant Garde Gothic Std', sans-serif;
-    padding: 24px;
+    font-family: avantGardeMedium;
+    padding: 5px 13px;
     text-align: center;
 }
 
@@ -345,6 +346,14 @@ input:focus {
     font-family: avantGardeMedium;
 }
 
+
+.plan_tabs .react-tabs__tab:focus,.plan_tabs .react-tabs__tab:focus-visible{
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: none;
+}
+
 .plan_tabs .react-tabs__tab:first-child {
     margin-right: 40px;
 }
@@ -386,6 +395,7 @@ input:focus {
     color: #000000;
     font-family: 'ITC Avant Garde Gothic Std Demi', sans-serif;
     margin: 0;
+    padding-top: 10px;
 }
 
 .save_find {
@@ -416,6 +426,19 @@ input:focus {
     color: #000000;
     font-family: 'ITC Avant Garde Gothic Std Demi', sans-serif;
     text-align: center;
+}
+
+.slider_label h3{
+    color: #134B97;
+    position: absolute;
+    top: -84px;
+    font-size: 12px;
+    font-family: 'ITC Avant Garde Gothic Std Demi', sans-serif;
+}
+
+.slider_label h3 span{
+    font-size: 16px;
+    font-family: 'ITC Avant Garde Gothic Std Bold', sans-serif;
 
 }
 
@@ -425,11 +448,10 @@ input:focus {
     font-family: 'ITC Avant Garde Gothic Std Demi', sans-serif;
     text-align: center;
     padding-top: 10px;
-    border-bottom: 1px solid #134B97;
     margin: 15px;
 }
-.step1_title .result_desc{
-    color: #000000;
+.step1_title .result_desc,.result_desc,.result_desc i {
+    color: #000000 !important;
 }
 
 .rc-slider {
@@ -490,7 +512,10 @@ input:focus {
 .medium_slider h2 {
     font-size: 32px;
 }
-
+.minutes_medium h2{
+   font-size: 24px;
+    padding-top: 10px;
+}
 .medium_slider p {
     font-size: 16px;
 }
@@ -498,15 +523,21 @@ input:focus {
 .large_slider {
     width: 168px;
     height: 168px;
-    margin-top: 18px;
+    margin-top: 0;
 }
 
 .large_slider h2 {
     font-size: 36px;
 }
 
+.large_minutes h2{
+    font-size: 26px;
+    padding: 0 5px;
+}
+
 .large_slider p {
     font-size: 18px;
+    padding: 0 8px;
 }
 
 .extra_slider {
@@ -517,6 +548,10 @@ input:focus {
 
 .extra_slider h2 {
     font-size: 46px;
+}
+
+.minutes_extra h2{
+    font-size: 32px;
 }
 
 .extra_slider p {
@@ -599,6 +634,10 @@ input:focus {
 
 }
 
+.plan_info,.plan_description,.recommended_plan{
+    padding: 0 20px;
+}
+
 .plan_info h3, .plan_description h3 {
     font-size: 24px;
     color: #000000;
@@ -631,29 +670,51 @@ input:focus {
     font-family: avantGardeMedium;
 }
 
-.plan_save a{
+.plan_save{
+    text-align: center;
+}
+
+.plan_save button{
     color: #134B97;
     font-size: 16px;
     font-family: 'ITC Avant Garde Gothic Std Bold', sans-serif;
     text-decoration: underline;
+    background: none;
+    border: none;
+
 }
 
-.plan_save button{
+.plan_save button:nth-child(2){
     font-size: 16px;
     font-family: 'ITC Avant Garde Gothic Std Bold', sans-serif;
-    color: #5C5C5C;
+    color: #134B97;
     background: none;
     border: none;
     padding-left: 68px;
 }
 
+.plan_save button i {
+    padding-right: 3px;
+}
+
 .plan_img{
     border-bottom: 1px solid #134B97;
     margin: 15px;
+    padding-bottom: 10px;
 }
 .plan_img img{
     padding: 16px;
     width: 150px;
+}
+
+
+.result_plan_title h2{
+    font-size: 24px;
+    color: #000000;
+    text-align: center;
+    font-family: 'ITC Avant Garde Gothic Std Bold', sans-serif;
+    border-bottom: 1px solid #134B97;
+    padding-bottom: 10px;
 }
 
 @media (max-width: 991px) {
@@ -684,4 +745,39 @@ input:focus {
         left: 16px;
     }
 
+}
+
+
+@keyframes customEnterOverlayAnimation {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes customLeaveOverlayAnimation {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes customEnterModalAnimation {
+    0% {
+        transform: scale(0.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes customLeaveModalAnimation {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.2);
+    }
 }

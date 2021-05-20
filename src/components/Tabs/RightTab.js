@@ -19,20 +19,20 @@ const RightTab = (props) => {
 
         if(value >= 500 && value !== 1000){
             setText('Ideal for all the moments that matter')
-            setLargeRels('medium_slider')
+            setLargeRels('medium_slider minutes_medium')
 
         }
 
         if(value === 1000){
             setText('Great for most of your calling needs')
-            setLargeRels('large_slider')
+            setLargeRels('large_slider large_minutes')
 
         }
 
 
         if (value > 1000) {
             setText('Great for most of your calling needs')
-            setLargeRels('extra_slider')
+            setLargeRels('extra_slider minutes_extra')
             return setSliderValue(1500)
         }
 
@@ -44,19 +44,22 @@ const RightTab = (props) => {
         300: {
             style: {
 
-            }, label: <span className={slider_value === 5 ? 'activation' : 'slider_label'}>300</span>
+            },
+            label: <span className={slider_value === 5 ? 'activation' : 'slider_label'}>300<h3 style={slider_value === 300 ? {display:'block'} : {display: 'none'}}>Starting at $<span>15</span></h3></span>,
+
+
         },
         500: {
-
+        label:<span className={slider_value === 5 ? 'activation' : 'slider_label'}><h3 style={slider_value === 500 ? {display:'block'} : {display: 'none'}}>Starting at $<span>15</span></h3></span>
         },
 
         1000: {
-
+        label:<span className={slider_value === 5 ? 'activation' : 'slider_label'}><h3 style={slider_value === 1000 ? {display:'block'} : {display: 'none'}}>Starting at $<span>25</span></h3></span>
         },
         [max]: {
             style: {
 
-            }, label: <span  className={slider_value === 50 ? 'activation' : 'slider_label'}>1500</span>
+            }, label: <span  className={slider_value === 50 ? 'activation' : 'slider_label'}>1500<h3 style={slider_value === max ? {display:'block'} : {display: 'none'}}>Starting at $<span>11</span></h3></span>
         }
     }
 
