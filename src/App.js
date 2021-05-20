@@ -7,6 +7,8 @@ import Step2 from "./components/Step2";
 import Step3 from "./components/Step3";
 import Step4 from "./components/Step4";
 import Result from "./components/Result";
+require('dotenv').config()
+
 function App() {
   return (
     <div className="App">

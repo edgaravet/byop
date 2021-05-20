@@ -47,7 +47,7 @@ import {showImeiModal} from "../redux/actions";
 
                 <div className={'imei_check_input'}>
                     <input type={'text'} name={'imei'} required={true} placeholder={'Enter your IMEI'} value={imeiValue} onChange={handleImeiValue}/>
-                    <img src={require('../assets/img/Icon feather-info.svg').default} onClick={showModal}/>
+                    <img src={require('../assets/img/Icon feather-info.svg').default} onClick={showModal} alt={'modal_icon'}/>
 
                 </div>
 

@@ -3,10 +3,10 @@ import {connect} from 'react-redux'
 import Header from "./Header";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import Slider, { Range } from 'rc-slider';
+import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import RightTab from "./Tabs/RightTab";
-import {nextStep} from "../redux/actions";
+import {changeData} from "../redux/actions";
 
 
 const Step3 = (props) => {
@@ -83,13 +83,20 @@ const Step3 = (props) => {
 
 
     const handleSubmit = () => {
-        props.dispatch(nextStep(4))
+        const newData = props.data;
+
+        newData.data = slider_value
+        props.dispatch(changeData(newData,4))
     }
+
+
+    const title = 'Now What About';
+    const description = 'Your usage?'
 
     return(
        <>
            <div className={'step1_body'}>
-               <Header imgSrc = {img}/>
+               <Header imgSrc = {img} title = {title} description = {description} />
            </div>
 
 
@@ -101,7 +108,7 @@ const Step3 = (props) => {
 
                 <Tabs className={'plan_tabs'} selectedIndex={tabIndex} onSelect={changeTab}>
                     <TabList>
-                        <Tab><img src={imgUrl}/>Unlimited Talk & Text</Tab>
+                        <Tab><img src={imgUrl} alt = {'unlimited_icon'}/>Unlimited Talk & Text</Tab>
                         <Tab>
                             <svg className={tabIndex === 1 ? 'active_svg' : ''} xmlns="http://www.w3.org/2000/svg" width="38" height="38.626" viewBox="0 0 38 38.626">
                                 <defs>

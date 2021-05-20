@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import {connect} from 'react-redux';
-import {nextStep} from "../redux/actions";
+import {changeStep} from "../redux/actions";
 
 
  const CompatibleNetwork = (props) => {
@@ -11,17 +11,19 @@ import {nextStep} from "../redux/actions";
     }
 
     const handleNextStep = () => {
-        props.dispatch(nextStep(2))
+        props.dispatch(changeStep(2))
     }
 
-     const img = require('../assets/img/Group 2744.png').default
+     const img = require('../assets/img/Group 2744.png').default;
+     const title = 'Let’s Confirm';
+     const description = 'Your phone is compatible'
 
     return(
         <>
         <div className={'step1_body'}>
 
 
-            <Header imgSrc = {img} />
+            <Header imgSrc = {img} title = {title} description = {description}/>
 
         </div>
 

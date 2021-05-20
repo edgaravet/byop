@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import {connect} from 'react-redux'

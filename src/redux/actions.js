@@ -1,12 +1,12 @@
 import {
+    CHANGE_DATA, CHANGE_STEP,
     CHECKEDNETWORK,
     GETRESULT,
     HIDEHELPMODAL,
     HIDEIMEIMODAL,
     IMEICHECK,
-    NEXTSTEP,
     SHOWHELPMODAL,
-    SHOWIMEIMODAL
+    SHOWIMEIMODAL, SORTED_DATA
 } from "./types";
 
 export function openHelpModal() {
@@ -60,20 +60,42 @@ export function hideImeiModal() {
 }
 
 
-export function nextStep(step) {
-
-    return{
-        type:NEXTSTEP,
-        payload:step
-    }
-
-}
-
-
 export function getResult(){
 
     return{
         type:GETRESULT
+    }
+}
+
+
+export function changeStep(step) {
+    return{
+        type:CHANGE_STEP,
+        payload:step
+    }
+}
+
+export function changeData(newData,nextStep) {
+
+    return dispatch => {
+
+        dispatch(changeStep(nextStep))
+        return dispatch({
+            type:CHANGE_DATA,
+            payload:newData
+        })
+    }
+
+}
+
+export function saveSortedData(sortedData){
+
+    return dispatch => {
+
+        dispatch({
+            type:SORTED_DATA,
+            payload:sortedData
+        })
     }
 
 }

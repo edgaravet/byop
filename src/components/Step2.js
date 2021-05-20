@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {connect} from 'react-redux'
 import Header from "./Header";
-import {nextStep} from "../redux/actions";
+import {changeData} from "../redux/actions";
 
 
 const Step2 = (props) => {
@@ -31,18 +31,18 @@ const Step2 = (props) => {
 
     const handleSetValue = () => {
        const data = props.data;
-
        data.lineCount = count
 
-        props.dispatch(nextStep(3))
+        props.dispatch(changeData(data,3))
     }
 
-    const img = require('../assets/img/Group 2748.png').default
-
+    const img = require('../assets/img/Group 2748.png').default;
+    const title = 'Let’s Take a Look';
+    const description = 'At what you need'
     return(
         <>
         <div className={'step1_body'}>
-            <Header imgSrc = {img}/>
+            <Header imgSrc = {img} title = {title} description = {description}/>
         </div>
 
             <div className={'lines_select'}>
@@ -54,7 +54,7 @@ const Step2 = (props) => {
                 {arr.map((item,key) => {
                     return(
 
-                        <i className={(key < count ? 'active fas ' :' far user_icons') + ' fa-user '}/>
+                        <i key={key} className={(key < count ? 'active fas ' :' far user_icons') + ' fa-user '}/>
                     )
                 })}
 
@@ -74,10 +74,9 @@ const Step2 = (props) => {
 }
 
 function mapStateToProps(state) {
-
     return{
-        currentStep: state.appReducer.currentStep,
-        data:state.appReducer.data
+        data:state.appReducer.data,
+        currentStep:state.appReducer.currentStep
     }
 
 }

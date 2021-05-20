@@ -1,24 +1,24 @@
 import React, {useState} from "react";
 import HelpModal from "./Modals/HelpModal";
 import {connect} from 'react-redux'
-import {checkNetwork, imeiCheck, openHelpModal} from "../redux/actions";
+import {changeData, checkNetwork, imeiCheck, openHelpModal} from "../redux/actions";
 import Header from "./Header";
 
  const Step1 = (props) => {
     const  languages = [
         {
         value:'t_mobile',
-        img:<img src={require('../assets/img/Font-Verizon-Logo.jpg').default}/>
+        img:<img src={require('../assets/img/Font-Verizon-Logo.jpg').default} alt={'t_mobile'}/>
     },
 
         {
             value: 'verizon',
-            img:<img src={require('../assets/img/Font-Verizon-Logo.jpg').default}/>
+            img:<img src={require('../assets/img/Font-Verizon-Logo.jpg').default} alt={'verizon'}/>
         },
 
         {
             value: 'at&t',
-            img:<img src={require('../assets/img/Font-Verizon-Logo.jpg').default}/>
+            img:<img src={require('../assets/img/Font-Verizon-Logo.jpg').default} alt={'at&t'}/>
         }
 
     ];
@@ -31,14 +31,14 @@ import Header from "./Header";
 
     const handleCheck = () => {
        const data = props.data;
-       if(selectedLanguage === "at&t"){
+        if(selectedLanguage === "at&t"){
            data.carrier = selectedLanguage;
 
            return props.dispatch(checkNetwork(selectedLanguage))
        }
 
-       data.carrier = selectedLanguage
-
+        data.carrier = selectedLanguage
+        props.dispatch(changeData(data))
         return props.dispatch(imeiCheck())
     }
 
@@ -47,17 +47,20 @@ import Header from "./Header";
     }
 
     const img = require('../assets/img/Group 2744.png').default
+    const title = 'Let’s Confirm';
+    const description = 'Your phone is compatible'
+
 
     return(
         <div>
             <div className={'step1_body'}>
-                <Header imgSrc = {img}/>
+                <Header imgSrc = {img} title = {title} description = {description}/>
 
                 <div className={'step_select_network'}>
                     <h3>Select your current network:</h3>
 
-                    {languages.map(function(lang) {
-                        return <button className={'networks_content' + (lang.value === selectedLanguage ? ' active_network' : '')}
+                    {languages.map(function(lang,key) {
+                        return <button key={key} className={'networks_content' + (lang.value === selectedLanguage ? ' active_network' : '')}
                                       value={lang.value}
                                       onClick = {updateLanguage.bind(null, lang.value)}
                         >{lang.img}</button>

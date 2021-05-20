@@ -1,22 +1,23 @@
 import {
+    CHANGE_DATA, CHANGE_STEP,
     CHECKEDNETWORK, GETRESULT,
     HIDEHELPMODAL,
     HIDEIMEIMODAL,
     IMEICHECK,
-    NEXTSTEP,
     SHOWHELPMODAL,
-    SHOWIMEIMODAL,
-    STEP2
+    SHOWIMEIMODAL, SORTED_DATA,
 } from "../types";
+
 
 const initialState = {
     show_help_modal:false,
-    data:{ lineCount: 1, data: 25, carrier: '', spendingNow: ''},
+    data:{ lineCount: 1, data: '', carrier: '', spendingNow: ''},
     network_checked:false,
     currentStep:1,
     imeiCheck:false,
     show_imei_modal:false,
-    result:false
+    result:false,
+    sortedData:null
 }
 
 export const appReducer = (state = initialState, action) => {
@@ -73,7 +74,7 @@ export const appReducer = (state = initialState, action) => {
             }
         }
 
-        case NEXTSTEP:{
+        case CHANGE_STEP:{
             return {
                 ...state,
                 currentStep: action.payload,
@@ -90,6 +91,23 @@ export const appReducer = (state = initialState, action) => {
 
             }
         }
+
+        case CHANGE_DATA:{
+            return {
+                ...state,
+                data:action.payload
+            }
+        }
+        case SORTED_DATA:{
+
+            return {
+                ...state,
+                sortedData:action.payload,
+
+            }
+        }
+
+
 
         default:
             return state

@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import {TabPanel} from "react-tabs";
 import Slider from "rc-slider";
 
 const RightTab = (props) => {
@@ -7,7 +6,6 @@ const RightTab = (props) => {
 
     const [slider_value,setSliderValue] = useState(300)
     const [text,setText] = useState('Email Social Media & Light Browsing')
-    const [imgUrl,setImgUrl] = useState(require('../../assets/img/conversation.svg').default)
     const [largeRels,setLargeRels] = useState('')
 
 
