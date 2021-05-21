@@ -6,16 +6,13 @@ import * as htmlToImage from 'html-to-image';
 import {startOver} from "../redux/actions";
 
 
-
-
-
 const Result = (props) => {
     const [planImg,setPlanImg] = useState('')
     const convertImgToBase64 =(url,callback)=>{
 
         var canvas = document.createElement('CANVAS');
         var ctx = canvas.getContext('2d');
-        var img = new Image;
+        var img = new Image();
         img.crossOrigin = 'Anonymous';
         img.onload = function(){
             canvas.height = img.height;
@@ -30,11 +27,18 @@ const Result = (props) => {
         console.log(url)
 
     }
-    useEffect(() => {
+
+    const convert = () => {
         convertImgToBase64(props.sortedData && props.sortedData.plan_image,(url) => {
             setPlanImg(url)
         })
-    },[props.result])
+    }
+
+
+    useEffect(() => {
+        convert()
+    })
+
     if(!props.result){
         return false
     }
@@ -43,6 +47,7 @@ const Result = (props) => {
 
     const title = 'You’re All Set!';
     const description = 'Grab, pay and enjoy!'
+
 
 
 
@@ -86,7 +91,7 @@ const Result = (props) => {
                 <span>Net10</span>
             </div>
             <div className={'plan_img'}>
-                <img src={planImg}/>
+                <img src={planImg} alt={'plan_img'}/>
             </div>
             <div className={'plan_info'}>
                 <h3>$1</h3>

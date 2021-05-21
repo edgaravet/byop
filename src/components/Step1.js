@@ -33,12 +33,13 @@ import Header from "./Header";
        const data = props.data;
         if(selectedLanguage === "at&t"){
            data.carrier = selectedLanguage;
-
+            setSelectedLanguage('')
            return props.dispatch(checkNetwork(selectedLanguage))
        }
 
         data.carrier = selectedLanguage
         props.dispatch(changeData(data))
+        setSelectedLanguage('')
         return props.dispatch(imeiCheck())
     }
 

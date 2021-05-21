@@ -77,7 +77,7 @@ const RightTab = (props) => {
               </div>
           </div>
 
-          <Slider  dots={false}  className={'range_slider data_count_slider'} value={slider_value} onChange={log} step={10}  min={300}  max={max}  marks={marks}/>
+          <Slider   dots={false}  className={'range_slider data_count_slider'} value={slider_value} onChange={log} step={1}  min={300}  max={max}  marks={marks}/>
 
 
       </>

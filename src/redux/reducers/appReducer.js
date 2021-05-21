@@ -18,7 +18,8 @@ const initialState = {
     imeiCheck:false,
     show_imei_modal:false,
     result:false,
-    sortedData:null
+    sortedData:null,
+    header_anim:false
 }
 
 export const appReducer = (state = initialState, action) => {
@@ -27,7 +28,8 @@ export const appReducer = (state = initialState, action) => {
         case SHOWHELPMODAL:{
             return {
                 ...state,
-                show_help_modal:true
+                show_help_modal:true,
+                header_anim:true
 
             }
         }
@@ -35,7 +37,9 @@ export const appReducer = (state = initialState, action) => {
         case HIDEHELPMODAL:{
             return {
                 ...state,
-                show_help_modal:false
+                show_help_modal:false,
+                header_anim: false
+
 
             }
         }
@@ -63,7 +67,8 @@ export const appReducer = (state = initialState, action) => {
 
             return {
                 ...state,
-                show_imei_modal:true
+                show_imei_modal:true,
+
             }
         }
 
@@ -71,7 +76,8 @@ export const appReducer = (state = initialState, action) => {
         case HIDEIMEIMODAL:{
             return {
                 ...state,
-                show_imei_modal:false
+                show_imei_modal:false,
+
             }
         }
 
@@ -79,7 +85,8 @@ export const appReducer = (state = initialState, action) => {
             return {
                 ...state,
                 currentStep: action.payload,
-                network_checked:false
+                network_checked:false,
+                imeiCheck: false
             }
         }
 
@@ -115,7 +122,8 @@ export const appReducer = (state = initialState, action) => {
                 ...state,
                 currentStep:action.payload ? action.payload : state.currentStep - 1,
                 network_checked:false,
-                imeiCheck:false
+                imeiCheck:false,
+                result: false
 
             }
         }

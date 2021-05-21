@@ -34,6 +34,8 @@ const Step2 = (props) => {
        data.lineCount = count
 
         props.dispatch(changeData(data,3))
+
+        setCount(1)
     }
 
     const img = require('../assets/img/Group 2748.png').default;

@@ -11,14 +11,14 @@ import {back} from "../redux/actions";
          }
          props.dispatch(back())
      }
-    console.log(props.currentStep)
+
     return(
 
 
         <>
-            <img src={props.imgSrc} alt={'header_img'}/>
+            <img className={props.header_anim ? 'anim_img' : ''} src={props.imgSrc} alt={'header_img'}/>
             <div className={'back_button'}>
-                <button onClick={backStep} className={props.result ? 'result_desc' : ''}><i className="fal fa-chevron-left"/>BACK</button>
+                {props.currentStep !== 1 || props.imeiCheck ? <button onClick={backStep} className={props.result ? 'result_desc' : ''}><i className="fal fa-chevron-left"/>BACK</button> : '' }
             </div>
 
             <div className={'logo_content'}>
@@ -47,7 +47,9 @@ import {back} from "../redux/actions";
 function mapStateToProps(state) {
 
     return{
-        currentStep: state.appReducer.currentStep
+        currentStep: state.appReducer.currentStep,
+        header_anim:state.appReducer.header_anim,
+        imeiCheck:state.appReducer.imeiCheck
     }
 
 }

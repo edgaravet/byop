@@ -1,11 +1,18 @@
 import React, {useState} from "react";
 import {connect} from "react-redux";
 import Header from "./Header";
-import {showImeiModal} from "../redux/actions";
+import {changeStep, showImeiModal, startOver} from "../redux/actions";
+import axios from "axios";
+import Loader from "react-loader-spinner";
 
 
- const ImeiCheck = (props) => {
-     const [imeiValue,setImeiValue] = useState('')
+
+const ImeiCheck = (props) => {
+        const [imeiValue,setImeiValue] = useState('')
+        const [eligible,setEligible] = useState(null)
+        const [error,setError] = useState('')
+        const [loader,setLoader] = useState(false)
+
 
      if(!props.imeiCheck){
          return false
@@ -14,9 +21,9 @@ import {showImeiModal} from "../redux/actions";
 
 
      const handleImeiValue = (event) => {
-         const {value} = event.target
-
-         setImeiValue(value)
+            const {value} = event.target
+            setError('')
+            setImeiValue(value)
      }
 
 
@@ -27,7 +34,32 @@ import {showImeiModal} from "../redux/actions";
 
 
      const handleSubmit = () => {
-         console.log('submited')
+         const carrier = props.data.carrier === 'verizon' ? 'VZW ' : 'TMO ';
+         setLoader(true)
+         axios.get(`https://api.saveonyourwirelessbill.com/v2/imeilookup?imei=${imeiValue}&carrier=${carrier}`,{
+             headers: {
+                 'Authorization': `Bearer ${process.env.REACT_APP_API_TOKEN}`
+             },
+         })
+             .then(res => {
+                 setLoader(false)
+                if(res.data.retry){
+                    return setError('Wrong IMEI')
+                }
+                 setEligible(res.data.eligible)
+                 setLoader(false)
+
+             })
+     }
+
+     const handleClose = () => {
+         setEligible(null)
+         setImeiValue('')
+         props.dispatch(startOver())
+     }
+
+     const handleNext = () => {
+         props.dispatch(changeStep(2))
      }
 
      const img = require('../assets/img/Group 2744.png').default
@@ -52,7 +84,33 @@ import {showImeiModal} from "../redux/actions";
                 </div>
 
                 <div className={'imei_check_submit'}>
-                    <button onClick={handleSubmit} disabled={!imeiValue} className={'default_buttons' + (!imeiValue ? ' disabled_button' : '')}>Submit</button>
+                    {error && <h5 className={'error_message'}>{error}</h5>}
+                    <Loader
+                        visible = {loader}
+                        type="Puff"
+                        color="#00BFFF"
+                        height={100}
+                        width={100}
+                        timeout={3000} //3 secs
+                    />
+                    {eligible === null ? <button onClick={handleSubmit} disabled={!imeiValue} className={'default_buttons' + (!imeiValue ? ' disabled_button' : '')}>Submit</button> : ''}
+
+                    {eligible === true &&
+                        <>
+                            <p className={'imei_check_text success_message'}><span>Your phone is compatible!<br/></span>Now let’s find the perfect service plan and SIM card for you.</p>
+                        <div className={'step_check start_button_content'}>
+                            <button onClick={handleNext}>Let's go</button>
+                        </div>
+                        </>
+                    }
+                    {eligible === false &&
+                        <>
+                    <p className={'imei_check_text'}><span>Oh No!<br/></span>Your phone is not compatible. But don't worry, you can find an excellent selection of compatible phones online.</p>
+                     <div className={'step_check start_button_content'}>
+                    <button onClick={handleClose}>Close</button>
+                     </div>
+                    </>
+                    }
                 </div>
 
             </div>
@@ -64,7 +122,8 @@ import {showImeiModal} from "../redux/actions";
 
 function mapStateToProps(state) {
     return{
-        imeiCheck:state.appReducer.imeiCheck
+        imeiCheck:state.appReducer.imeiCheck,
+        data:state.appReducer.data,
     }
 
 }
